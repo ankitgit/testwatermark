@@ -45,7 +45,7 @@ public class WatermarkController {
     return ticketID;
   }
 
-  public String checkStatus(final UUID ticket) {
+  public String checkStatus(final int ticket) {
     try {
       Boolean isProcessed =  getWaterMarketTimestampByTicket(ticket);
       return isProcessed ? "Watermarking process is complete" : "Watermarking in process";
@@ -54,7 +54,7 @@ public class WatermarkController {
     }
   }
 
-  public Document retrieveDocument(final UUID ticket) throws Exception {
+  public Document retrieveDocument(final int ticket) throws Exception {
     Document document = getWaterMarketDocumentByTicket(ticket);
     if(document == null) {
       throw new Exception("No document with id " + ticket + " found in the repository !! ");
@@ -66,7 +66,7 @@ public class WatermarkController {
       return documentRepository.get(id);
   }
 
-  private Document getWaterMarketDocumentByTicket(UUID ticketID) {
+  private Document getWaterMarketDocumentByTicket(int ticketID) {
       return watermarkedDocumentRepository.get(ticketID);
   }
 
@@ -74,8 +74,9 @@ public class WatermarkController {
    * Assuming watermarking process takes 10 seconds.
    * Method check of the timestamp of Watermarking request is 10 seconds earlier
    * then return True else False
+   * @param ticketID
    */
-  private Boolean getWaterMarketTimestampByTicket(UUID ticketID) throws Exception
+  private Boolean getWaterMarketTimestampByTicket(int ticketID) throws Exception
   {
     if(watermarkedDocumentTimestamp.get(ticketID) != null ) {
       Date timeStampOfWatermarking = watermarkedDocumentTimestamp.get(ticketID);
