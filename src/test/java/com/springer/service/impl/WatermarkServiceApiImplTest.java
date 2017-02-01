@@ -1,4 +1,4 @@
-package test.com.springer.service.impl;
+package com.springer.service.impl;
 
 
 /**

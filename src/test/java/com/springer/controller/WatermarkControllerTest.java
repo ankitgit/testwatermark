@@ -1,13 +1,13 @@
-package test.com.springer.controller;
+package com.springer.controller;
 
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import junit.framework.TestCase;
-import main.com.springer.controller.WatermarkController;
-import main.com.springer.model.Document;
-import main.com.springer.model.DocumentRepository;
+import com.springer.controller.WatermarkController;
+import com.springer.model.Document;
+import com.springer.model.DocumentRepository;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mockito;
